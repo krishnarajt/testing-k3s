@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: fastapi-demo
-        image: ghcr.io/KrishnarajT/testing-k3s:latest
+        image: ghcr.io/krishnarajt/testing-k3s:latest
         imagePullPolicy: Always
         env:
         - name: MY_ENV_VAR
