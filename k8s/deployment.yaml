@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fastapi-demo
+  template:
+    metadata:
+      labels:
+        app: fastapi-demo
+    spec:
+      containers:
+      - name: fastapi-demo
+        image: ghcr.io/YOUR_USERNAME/fastapi-demo:latest
+        imagePullPolicy: Always
+        env:
+        - name: MY_ENV_VAR
+          valueFrom:
+            secretKeyRef:
+              name: fastapi-secrets
+              key: MY_ENV_VAR
+        ports:
+        - containerPort: 8000
