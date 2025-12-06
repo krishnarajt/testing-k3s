@@ -9,6 +9,8 @@ spec:
       app: fastapi-demo
   template:
     metadata:
+      annotations:
+        secret.reloader.stakater.com/reload: "fastapi-secrets"
       labels:
         app: fastapi-demo
     spec:
